@@ -69,7 +69,15 @@ app.post("/view",(req,res)=>{
 })
 
 
-
+app.use("/signup",async (req,res)=>{
+    let input=req.body
+    let hasedpassword=await generateHashedPassword(input.password)
+    console.log(hasedpassword)
+    input.password=hasedpassword
+    let bus = new busmodel(input)
+    bus.save()
+        res.json({status:"Success"})
+    })
 
 
 
