@@ -89,7 +89,11 @@ app.use("/signup",async (req,res)=>{
         }
         )
 
-
+        app.get("/view",(req,res)=>{
+            sbusmodel.find().then((data)=>{
+                res.json(data)
+            })
+            })
 
 
 app.listen(8080,()=>{
