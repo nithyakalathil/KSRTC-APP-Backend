@@ -96,6 +96,14 @@ app.use("/signup",async (req,res)=>{
             })
 
 
+            app.post("/search",(req,res)=>{
+                let input=req.body
+            
+                sbusmodel.find(input).then((data)=>{
+                    res.json(data)
+                })
+            })
+
 app.listen(8080,()=>{
     console.log("server started")
 })
