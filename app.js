@@ -79,7 +79,15 @@ app.use("/signup",async (req,res)=>{
         res.json({status:"Success"})
     })
 
-
+    app.post("/add",(req,res)=>{
+        let input=req.body
+        let sbus=new sbusmodel(input)
+        sbus.save()
+        console.log(sbus)
+        res.json({status:"Success"})
+            
+        }
+        )
 
 
 
